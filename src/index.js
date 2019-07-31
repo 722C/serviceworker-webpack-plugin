@@ -63,7 +63,7 @@ export default class ServiceWorkerPlugin {
 
     const runtimePath = path.resolve(__dirname, './runtime.js')
     const data = JSON.stringify({
-      scriptURL: path.join(this.options.publicPath, this.options.filename),
+      scriptURL: path.join(this.options.publicPath, this.options.filename).replace(':/', '://'),
     })
     const loaderPath = `${path.join(__dirname, 'runtimeLoader.js')}?${data}`
     const module = compiler.options.module
